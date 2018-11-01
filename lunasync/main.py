@@ -66,5 +66,6 @@ def sync(subs: Optional[Sequence[Dict[str, Optional[str]]]] = None,
         savedata.write()
 
         downloaded += stream.posts_seen
+        print()
 
     return downloaded

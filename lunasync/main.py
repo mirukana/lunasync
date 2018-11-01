@@ -61,8 +61,13 @@ def sync(subs: Optional[Sequence[Dict[str, Optional[str]]]] = None,
             savedata.write()
             raise
 
-        sub_data["success"] = True
-        sub_data["last_id"] = newest_id
+        try:
+            # Verify everything has been processed (no CTRL-C happened):
+            next(stream)
+        except StopIteration:
+            sub_data["success"] = True
+            sub_data["last_id"] = newest_id
+
         savedata.write()
 
         downloaded += stream.posts_seen

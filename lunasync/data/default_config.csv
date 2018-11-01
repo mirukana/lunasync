@@ -1,0 +1,22 @@
+# lunasync tag search subscriptions
+
+# Each line represents a tag search to download and keep synchronized.
+# Blank lines and lines starting with a "#" (comments) are ignored.
+#
+# Lines are comma-separated values:
+#     tag search, filter, labels, booru
+#
+# A value can be left unspecified, blank, or the symbol "%". Effects:
+# - tag search: will report the latest posts/home page of the booru;
+# - filter:     no filter will be applied;
+# - labels:     no label will be set;
+# - booru:      the default booru (set in lunakit's config file) will be used.
+#
+# As example, the following lines are equivalent
+# (assuming the default booru is "danbooru"):
+#     wallpaper width:>=1920
+#     wallpaper width:>=1920, , ,
+#     wallpaper width:>=1920, %, %, %
+#     wallpaper width:>=1920, %, %, danbooru
+#
+# See `lunasync --help` and `lunakit --help` for more information.

@@ -5,9 +5,9 @@
 
 from copy import copy
 
-import lunakit
+import lunafind
 
-LOG = copy(lunakit.LOG)
+LOG = copy(lunafind.LOG)
 
 from .__about__ import __doc__
 from . import config, savedata

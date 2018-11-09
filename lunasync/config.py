@@ -1,5 +1,5 @@
 # Copyright 2018 miruka
-# This file is part of lunakit, licensed under LGPLv3.
+# This file is part of lunasync, licensed under LGPLv3.
 
 import csv
 import shutil
@@ -12,9 +12,10 @@ from pkg_resources import resource_filename
 from . import __about__
 
 DEFAULT_FILE = resource_filename(__about__.__name__, "data/default_config.csv")
-FILE         = f"%s/{__about__.__pkg_name__}.csv" % user_config_dir("lunakit")
-FIELDS       = ["tag_search", "filter", "labels", "booru"]
-SUBS         = []
+FILE         = f"%s/%s.csv" % (user_config_dir(__about__.__project_name__),
+                               __about__.__pkg_name__)
+FIELDS = ["tag_search", "filter", "labels", "booru"]
+SUBS   = []
 
 def reload(path: Optional[str] = None) -> None:
     path = Path(path or FILE).expanduser()

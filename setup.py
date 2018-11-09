@@ -31,7 +31,7 @@ setup(
         "atomicfile",
         "blessed"
         "docopt",
-        "lunakit",
+        "lunafind",
         "setuptools",
     ],
 

@@ -3,7 +3,7 @@
 
 from typing import Dict, Optional, Sequence
 
-from lunakit import Stream
+from lunafind import Stream
 
 from . import config, savedata
 

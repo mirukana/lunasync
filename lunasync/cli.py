@@ -6,7 +6,7 @@ r"""Usage: lunasync [LABEL]... [options]
 Keep downloaded booru searches up-to-date, similar to Danbooru subscriptions.
 
 Subscriptions are defined in the config file (see `--print-config-path`),
-and will be downloaded/updated using `lunakit`.
+and will be downloaded/updated using `lunafind`.
 The number of posts downloaded will be output on stdout.
 
 Arguments:
@@ -49,7 +49,7 @@ from typing import List, Optional
 
 import docopt
 
-import lunakit
+import lunafind
 
 from . import __about__, config, sync
 
@@ -63,16 +63,16 @@ def main(argv: Optional[List[str]] = None) -> None:
         )
     except docopt.DocoptExit:
         if len(sys.argv) > 1:
-            print(lunakit.TERM.red("Invalid command syntax, check help:\n"))
+            print(lunafind.TERM.red("Invalid command syntax, check help:\n"))
 
-        lunakit.utils.print_colored_help(__doc__, exit_code=10)
+        lunafind.utils.print_colored_help(__doc__, exit_code=10)
 
     if args["--config"]:
         config.FILE = args["--config"]
         config.reload()
 
     if args["--help"]:
-        lunakit.utils.print_colored_help(__doc__)
+        lunafind.utils.print_colored_help(__doc__)
 
     if args["--print-config-path"]:
         print(config.FILE)

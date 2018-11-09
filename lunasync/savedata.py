@@ -1,5 +1,5 @@
 # Copyright 2018 miruka
-# This file is part of lunakit, licensed under LGPLv3.
+# This file is part of lunasync, licensed under LGPLv3.
 
 import json
 from pathlib import Path
@@ -8,11 +8,12 @@ from typing import Any, Dict, Optional
 from appdirs import user_data_dir
 from atomicfile import AtomicFile
 
-from lunakit.utils import jsonify
+from lunafind.utils import jsonify
 
 from . import __about__
 
-FILE = f"%s/{__about__.__pkg_name__}.csv" % user_data_dir("lunakit")
+FILE = "%s/%s.csv" % (user_data_dir(__about__.__project_name__),
+                      __about__.__pkg_name__)
 
 DATA: Dict[str, Dict[str, Any]] = {}
 

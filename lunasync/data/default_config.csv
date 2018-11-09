@@ -10,7 +10,7 @@
 # - tag search: will report the latest posts/home page of the booru;
 # - filter:     no filter will be applied;
 # - labels:     no label will be set;
-# - booru:      the default booru (set in lunakit's config file) will be used.
+# - booru:      the default booru (set in lunafind's config file) will be used.
 #
 # As example, the following lines are equivalent
 # (assuming the default booru is "danbooru"):
@@ -19,4 +19,4 @@
 #     wallpaper width:>=1920, %, %, %
 #     wallpaper width:>=1920, %, %, danbooru
 #
-# See `lunasync --help` and `lunakit --help` for more information.
+# See `lunasync --help` and `lunafind --help` for more information.

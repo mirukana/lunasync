@@ -40,7 +40,6 @@ def sync(subs: Optional[Sequence[Dict[str, Optional[str]]]] = None,
         if not force_full:
             stream = stream.stop_if("id:<=%s" % sub_data["last_id"])
 
-        passed_initial      = False
         sub_data["success"] = False
 
         try:
@@ -48,14 +47,11 @@ def sync(subs: Optional[Sequence[Dict[str, Optional[str]]]] = None,
             newest_post = next(stream)
             newest_id   = newest_post.id
 
-            passed_initial = True
-
             newest_post.write(overwrite=overwrite, warn=warn)
             stream.write(overwrite=overwrite, warn=warn)
 
         except StopIteration:
-            if not passed_initial:
-                downloaded -= 1
+            pass
 
         except Exception:
             savedata.write()
@@ -70,7 +66,7 @@ def sync(subs: Optional[Sequence[Dict[str, Optional[str]]]] = None,
 
         savedata.write()
 
-        downloaded += stream.posts_seen
+        downloaded += stream.downloaded
         print()
 
     return downloaded

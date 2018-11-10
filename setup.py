@@ -44,8 +44,9 @@ setup(
         ]
     },
 
-    keywords = "lunakit booru danbooru api image ugoira anime cli terminal " \
-               "scrap saved tag search filter download sync subscription cron",
+    keywords = "lunakit lunafind booru danbooru api image ugoira anime cli " \
+               "terminal scrap saved tag search filter download sync " \
+               "subscription cron",
 
     url = "https://github.com/mirukan/lunasync",
 

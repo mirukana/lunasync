@@ -29,7 +29,7 @@ setup(
     install_requires = [
         "appdirs",
         "atomicfile",
-        "blessed"
+        "blessed",
         "docopt",
         "lunafind",
         "setuptools",

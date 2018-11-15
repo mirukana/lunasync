@@ -37,7 +37,7 @@ def sync(subs:            Optional[Sequence[Dict[str, Optional[str]]]] = None,
         stream = Stream(sub["tag_search"],
                         pages  = "all",
                         limit  = 200,
-                        prefer = sub["booru"] or None).filter(sub["filter"])
+                        client = sub["booru"] or None).filter(sub["filter"])
 
         if not force_full:
             stream = stream.stop_if("id:<=%s" % sub_data["last_id"])

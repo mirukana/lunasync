@@ -1,18 +1,20 @@
 # Copyright 2018 miruka
 # This file is part of lunasync, licensed under LGPLv3.
 
-from typing import Dict, Optional, Sequence
+from pathlib import Path
+from typing import Dict, Optional, Sequence, Union
 
 from lunafind import Stream
 
 from . import config, savedata
 
 
-def sync(subs: Optional[Sequence[Dict[str, Optional[str]]]] = None,
-         only_for_labels: Sequence[str]  = (),
-         force_full:      bool           = False,
-         overwrite:       bool           = False,
-         warn:            bool           = True) -> int:
+def sync(subs:            Optional[Sequence[Dict[str, Optional[str]]]] = None,
+         only_for_labels: Sequence[str]    = (),
+         force_full:      bool             = False,
+         base_dir:        Union[str, Path] = Path("."),
+         overwrite:       bool             = False,
+         warn:            bool             = True) -> int:
 
     downloaded = 0
 
@@ -47,8 +49,8 @@ def sync(subs: Optional[Sequence[Dict[str, Optional[str]]]] = None,
             newest_post = next(stream)
             newest_id   = newest_post.id
 
-            newest_post.write(overwrite=overwrite, warn=warn)
-            stream.write(overwrite=overwrite, warn=warn)
+            newest_post.write(base_dir=base_dir,overwrite=overwrite, warn=warn)
+            stream.write(base_dir=base_dir, overwrite=overwrite, warn=warn)
 
         except StopIteration:
             pass

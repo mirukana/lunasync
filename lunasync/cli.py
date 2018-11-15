@@ -23,6 +23,10 @@ Options:
     Without this, the sync will stop upon reaching the most recently
     downloaded post of previous syncs (if there were any).
 
+  -d DIR, --local-dir DIR
+    Path to the directory where to download posts.
+    If unspecified, the current directory (`.`) is used.
+
   -q, --quiet-skip
     Do not warn when skipping download of already existing files.
 
@@ -81,6 +85,7 @@ def main(argv: Optional[List[str]] = None) -> None:
     downloaded = sync(
         only_for_labels = args["LABEL"],
         force_full      = args["--force"],
+        base_dir        = args["--local-dir"] or ".",
         overwrite       = args["--overwrite"],
         warn            = not args["--quiet-skip"]
     )

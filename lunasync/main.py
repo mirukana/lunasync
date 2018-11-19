@@ -49,8 +49,10 @@ def sync(subs:            Optional[Sequence[Dict[str, Optional[str]]]] = None,
             newest_post = next(stream)
             newest_id   = newest_post.id
 
-            newest_post.write(base_dir=base_dir,overwrite=overwrite, warn=warn)
-            stream.write(base_dir=base_dir, overwrite=overwrite, warn=warn)
+            newest_post.download(
+                base_dir=base_dir,overwrite=overwrite, warn=warn
+            )
+            stream.download(base_dir=base_dir, overwrite=overwrite, warn=warn)
 
         except StopIteration:
             pass

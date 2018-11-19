@@ -5,7 +5,7 @@
 
 __project_name__ = "lunakit"
 __pkg_name__     = "lunasync"
-__version__      = "0.1.2"
+__version__      = "0.1.2-1"
 __status__       = "Development"
 # __status__     = "Production"
 

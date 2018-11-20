@@ -30,7 +30,7 @@ setup(
         "appdirs",
         "atomicfile",
         "docopt",
-        "lunafind>=0.5.4,<=0.6.0",
+        "lunafind>=0.5.4,<0.6.0",
         "setuptools",
     ],
 

@@ -14,7 +14,32 @@ def sync(subs:            Optional[Sequence[Dict[str, Optional[str]]]] = None,
          force_full:      bool             = False,
          base_dir:        Union[str, Path] = Path("."),
          overwrite:       bool             = False,
-         warn:            bool             = True) -> int:
+         warn:            bool             = False) -> int:
+    """Start tag search synchronizations, return number of posts downloaded.
+
+    Arguments:
+      subs:
+        sequence of dicts representing a search,
+        See lunasync.config.FIELDS for the required dict keys.
+        Values can be empty.
+        If None, searches will be read from the user's config file.
+
+      only_for_labels:
+        If specified, only sync for searches with these labels.
+
+      force_full:
+        If True, force running full synchronizations, rechecking every posts.
+
+      base_dir:
+        Where to download posts. Defaults to current directory.
+
+      overwrite:
+        Whether to force downloads and overwrite existing files, or skip them.
+        Defaults to False (skip).
+
+      warn:
+        If warnings must be shown when skipping existing files.
+        Defaults to False."""
 
     downloaded = 0
 

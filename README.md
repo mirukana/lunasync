@@ -16,9 +16,9 @@ Can be easily used with cron for automatic scheduling.
 
 ## Features
 
-- Full and incremental syncs, incremental stops downloading after reaching the
+- Full and incremental syncs; incremental stops downloading after reaching the
   last post that was downloaded in a previous run
-- Fast multithreaded downloads with lunafind, 8 downloads in parallel by default
+- Fast multithreaded downloads with lunafind; 8 downloads in parallel by default
 - Can sync all or only searches with a specific labels
 - Return the total number of downloaded posts
 
@@ -27,7 +27,7 @@ Can be easily used with cron for automatic scheduling.
 After adding some searches to the config file,
 simply doing `lunasync` will synchronize all searches in the current directory.  
 A full sync will be taken for a search if this is the first time,
-incremental else.
+else incremental will be used.
 See `lunasync --help` for all options.
 
 ## Python usage

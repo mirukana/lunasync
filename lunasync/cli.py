@@ -71,7 +71,7 @@ def main(argv: Optional[List[str]] = None) -> None:
             sys.exit(10)
 
     if args["--config"]:
-        config.FILE = args["--config"]
+        config.FILE = Path(args["--config"])
         config.reload()
 
     if args["--help"]:

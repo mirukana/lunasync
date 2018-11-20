@@ -12,8 +12,8 @@ from pkg_resources import resource_filename
 from . import __about__
 
 DEFAULT_FILE = resource_filename(__about__.__name__, "data/default_config.csv")
-FILE         = f"%s/%s.csv" % (user_config_dir(__about__.__project_name__),
-                               __about__.__pkg_name__)
+FILE         = (Path(user_config_dir(__about__.__project_name__)) /
+                f"{__about__.__pkg_name__}.csv")
 FIELDS = ["tag_search", "filter", "labels", "booru"]
 SUBS   = []
 

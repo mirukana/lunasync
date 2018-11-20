@@ -55,7 +55,7 @@ import docopt
 
 import lunafind
 
-from . import __about__, config, sync
+from . import LOG, __about__, config, sync
 
 
 def main(argv: Optional[List[str]] = None) -> None:
@@ -67,9 +67,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         )
     except docopt.DocoptExit:
         if len(sys.argv) > 1:
-            print(lunafind.TERM.red("Invalid command syntax, check help:\n"))
-
-        lunafind.utils.print_colored_help(__doc__, exit_code=10)
+            LOG.error(f"Invalid command syntax or bad option, check --help.")
+            sys.exit(10)
 
     if args["--config"]:
         config.FILE = args["--config"]
@@ -90,5 +89,5 @@ def main(argv: Optional[List[str]] = None) -> None:
         warn            = not args["--quiet-skip"]
     )
 
-    time.sleep(0.2)  # Other threads might manage to print after this else
+    time.sleep(0.2)  # Other threads will always manage to print after else
     print(downloaded)

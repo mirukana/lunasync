@@ -29,9 +29,8 @@ setup(
     install_requires = [
         "appdirs",
         "atomicfile",
-        "blessed",
         "docopt",
-        "lunafind",
+        "lunafind>=0.5.4,<=0.6.0",
         "setuptools",
     ],
 

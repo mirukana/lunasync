@@ -72,5 +72,6 @@ setup(
         "Natural Language :: English",
 
         "Operating System :: POSIX",
+        "Operating System :: Microsoft :: Windows",
     ]
 )

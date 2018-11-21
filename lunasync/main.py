@@ -6,7 +6,7 @@ from typing import Dict, Optional, Sequence, Union
 
 from lunafind import Stream
 
-from . import config, savedata
+from . import LOG, config, savedata
 
 
 def sync(subs:            Optional[Sequence[Dict[str, Optional[str]]]] = None,
@@ -41,9 +41,12 @@ def sync(subs:            Optional[Sequence[Dict[str, Optional[str]]]] = None,
         If warnings must be shown when skipping existing files.
         Defaults to False."""
 
-    downloaded = 0
+    subs_in_cfg = False
+    downloaded  = 0
 
     for sub in subs or config.SUBS:
+        subs_in_cfg = True
+
         sub = {k: "" if v is None or v.strip() == "%" else v.strip()
                for k, v in sub.items()}
 
@@ -97,5 +100,9 @@ def sync(subs:            Optional[Sequence[Dict[str, Optional[str]]]] = None,
 
         downloaded += stream.downloaded
         print()
+
+    if not subs_in_cfg and not subs:
+        LOG.warning("No subscription to sync, see configuration file: %r",
+                    str(config.FILE))
 
     return downloaded
